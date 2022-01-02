@@ -23,6 +23,7 @@ class MainActivity : ComponentActivity() {
                     DefaultKalendarView(
                         modifier = Modifier.fillMaxHeight(),
                         kalendarRange = KalendarRange.ofMonth(2022, Month.JANUARY),
+                        selectionMode = SelectionMode.Multiple
                     )
                 }
             }
