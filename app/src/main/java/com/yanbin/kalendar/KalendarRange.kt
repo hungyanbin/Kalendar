@@ -6,7 +6,7 @@ import java.time.Month
 import java.time.temporal.ChronoUnit
 import kotlin.math.ceil
 
-class KalendarRange(
+data class KalendarRange(
     val beginDate: LocalDate,
     val numberOfRow: Int,
     val currentMonth: Month?

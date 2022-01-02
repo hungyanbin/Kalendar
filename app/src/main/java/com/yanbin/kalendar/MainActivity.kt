@@ -8,6 +8,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.yanbin.kalendar.ui.theme.KalendarTheme
@@ -20,10 +21,13 @@ class MainActivity : ComponentActivity() {
             KalendarTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    DefaultKalendarView(
+                    val kalendarScope = rememberCoroutineScope()
+                    val dateSelection: DateSelection = MultipleDateSelection(coroutineScope = kalendarScope)
+
+                    SelectableKalendarView(
                         modifier = Modifier.fillMaxHeight(),
                         kalendarRange = KalendarRange.ofMonth(2022, Month.JANUARY),
-                        selectionMode = SelectionMode.Multiple
+                        dateSelection = dateSelection
                     )
                 }
             }
